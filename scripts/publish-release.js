@@ -109,9 +109,9 @@ rl.question(`Current version tag is ${currentTag}. What should the new tag be? (
         execSync(`git push origin ${version}`, { stdio: 'inherit' });
 
         console.log('\n✅ Successfully triggered the GitHub Actions workflow!');
-        console.log('Go to https://github.com/keshavanarayan/Offline-Time-Tracker/actions to watch the build progress.');
+        console.log('Go to https://github.com/SPACIO-TECHTONICS/Offline-Time-Tracker/actions to watch the build progress.');
         console.log('Once completed, your .exe file will be available at:');
-        console.log('https://github.com/keshavanarayan/Offline-Time-Tracker/releases\n');
+        console.log('https://github.com/SPACIO-TECHTONICS/Offline-Time-Tracker/releases\n');
 
     } catch (error) {
         console.error('\n❌ Failed to publish release:', error.message);

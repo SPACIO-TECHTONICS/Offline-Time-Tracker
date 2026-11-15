@@ -56,7 +56,7 @@ module.exports = {
       name: '@electron-forge/publisher-github',
       config: {
         repository: {
-          owner: 'keshavanarayan',
+          owner: 'SPACIO-TECHTONICS',
           name: 'Offline-Time-Tracker'
         },
         prerelease: false,
