@@ -1,5 +1,7 @@
 # Offline-Time-Tracker
 
+[![Donate](https://img.shields.io/badge/Donate-Support%20Project-2ea44f?style=flat-square)](https://rzp.io/rzp/RvtFEof)
+
 **Offline-Time-Tracker** is a standalone desktop application for tracking work hours, client projects, and task logs. The application runs completely offline without external cloud dependencies or internet access.
 
 ---
@@ -169,6 +171,14 @@ Copies release files from `Offline-Time-Tracker-dist/` to the configured `DEPLOY
 npm run publish
 ```
 Creates a new version tag and triggers the GitHub release build workflow.
+
+---
+
+## Support
+
+If this application helps your workflow, please consider supporting the project:
+
+[![Donate](https://img.shields.io/badge/Donate-Support%20Project-2ea44f?style=for-the-badge)](https://rzp.io/rzp/RvtFEof)
 
 ---
 
