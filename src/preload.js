@@ -6,9 +6,7 @@ contextBridge.exposeInMainWorld('electronAPI', {
     let validChannels = [
       'restore-window',
       'close-window',
-      'request-shutdown',
       'allow-mini-mode',
-      'allow-minimize',
       'quit-app',
       'open-url',
       'trigger-update-check'
@@ -33,7 +31,7 @@ contextBridge.exposeInMainWorld('electronAPI', {
     return Promise.reject(new Error(`Invalid IPC channel: ${channel}`));
   },
   on: (channel, func) => {
-    let validChannels = ['toggle-mini-mode', 'app-closing', 'check-can-mini-mode', 'check-can-minimize', 'screen-locked'];
+    let validChannels = ['toggle-mini-mode', 'app-closing', 'check-can-mini-mode', 'screen-locked'];
     if (validChannels.includes(channel)) {
       // Deliberately strip event as it includes `sender`
       ipcRenderer.on(channel, (event, ...args) => func(...args));

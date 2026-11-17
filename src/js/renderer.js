@@ -5,7 +5,6 @@ const projectInput = document.getElementById("projectInput");
 const taskInput = document.getElementById("taskInput");
 const clientSuggestions = document.getElementById("clientSuggestions");
 const projectSuggestions = document.getElementById("projectSuggestions");
-const timerDisplay = document.getElementById("timerDisplay");
 const startBtn = document.getElementById("startBtn");
 const pauseBtn = document.getElementById("pauseBtn");
 const stopBtn = document.getElementById("stopBtn");
@@ -443,41 +442,6 @@ async function init() {
       }
 
       ipcRenderer.send('allow-mini-mode');
-    });
-
-    ipcRenderer.on('check-can-minimize', async () => {
-      if (hasIncompleteLogs()) {
-        showCustomAlert("Please complete missing Client, Project, and Task entries in your time logs before minimizing.");
-        return;
-      }
-
-      if (!ensureUsername()) {
-        showCustomAlert("Please enter your name before minimizing.");
-        return;
-      }
-
-      const exportFolder = localStorage.getItem(STORAGE_KEY_EXPORT_FOLDER);
-      if (!exportFolder) {
-        showCustomAlert("Please select an Auto-Export folder before minimizing.");
-        const selected = await setupAutoExport();
-        if (!selected) return;
-      }
-
-      const client = clientInput ? clientInput.value.trim() : "";
-      const project = projectInput ? projectInput.value.trim() : "";
-      const task = taskInput ? taskInput.value.trim() : "";
-
-      if (!activeSession) {
-        showCustomAlert("You must start a timer (▶) with valid Client, Project, and Task before minimizing.");
-        return;
-      }
-
-      if (!client || !project || !task) {
-        showCustomAlert("Please fill in the Client, Project, and Task before minimizing.");
-        return;
-      }
-
-      ipcRenderer.send('allow-minimize');
     });
   }
 }

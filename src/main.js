@@ -59,7 +59,6 @@ let mainWindow;
 let isShuttingDown = false;
 let isQuitting = false;
 let isMiniMode = false;
-let isMinimizing = false;
 
 function createWindow() {
   mainWindow = new BrowserWindow({
@@ -101,14 +100,6 @@ function createWindow() {
       // Already in mini mode, do not allow closing
       e.preventDefault();
     }
-  });
-
-  mainWindow.on('minimize', () => {
-    isMinimizing = true;
-  });
-
-  mainWindow.on('restore', () => {
-    isMinimizing = false;
   });
 }
 
@@ -174,13 +165,6 @@ ipcMain.on('close-window', () => {
   }
 });
 
-// IPC handler from Shutdown button -> requests full application exit
-ipcMain.on('request-shutdown', () => {
-  if (mainWindow) {
-    mainWindow.webContents.send('app-closing');
-  }
-});
-
 // IPC handler to transition to mini window after renderer validation
 ipcMain.on('allow-mini-mode', () => {
   if (mainWindow && !isMiniMode) {
@@ -196,14 +180,6 @@ ipcMain.on('allow-mini-mode', () => {
     mainWindow.setMenuBarVisibility(false);
     mainWindow.setAlwaysOnTop(true, 'screen-saver');
     mainWindow.webContents.send('toggle-mini-mode', true);
-  }
-});
-
-// IPC handler to transition to minimize after renderer validation
-ipcMain.on('allow-minimize', () => {
-  if (mainWindow && !isMinimizing) {
-    isMinimizing = true;
-    mainWindow.minimize();
   }
 });
 

@@ -6,8 +6,6 @@
   --text-main: #0f172a;
   --text-muted: #64748b;
   --border-color: #e2e8f0;
-  --success: #0f172a;
-  --success-hover: #1e293b;
   --danger: #dc2626;
   --danger-hover: #991b1b;
   --input-bg: #ffffff;
@@ -402,27 +400,9 @@ tr:last-child {
   border-bottom: none;
 }
 
-tr:hover {
-  background-color: #f9fafb;
-}
-
 .duration-cell {
   color: var(--primary);
   font-weight: 600;
-}
-
-.btn-delete {
-  color: var(--text-muted);
-  background: none;
-  border: none;
-  cursor: pointer;
-  font-size: 1rem;
-  padding: 4px;
-  transition: color 0.2s;
-}
-
-.btn-delete:hover {
-  color: var(--danger);
 }
 
 .empty-state {
